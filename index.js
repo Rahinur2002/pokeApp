@@ -7,13 +7,13 @@ const port = 3000;
 const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 
 
-let pokemonId = 5
+
 
 app.get("/", (req, res) => {
     res.render("index.ejs", { content: "API Response." });
   });
   
-  app.get("/noAuth", async (req, res) => {
+  app.get("/", async (req, res) => {
     try {
       const result = await axios.get(API_URL + "/random");
       res.render("index.ejs", { content: JSON.stringify(result.data) });
